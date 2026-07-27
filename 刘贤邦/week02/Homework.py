@@ -1,8 +1,20 @@
+from dotenv import load_dotenv
 from openai import OpenAI
-import json
+import os
 
-BASE_URL = "https://api.deepseek.com"
-model = "deepseek-v4-flash"
+load_dotenv(dotenv_path="./.env.mimo", verbose=True)
+
+API_KEY = os.getenv("API_KEY")
+if not API_KEY:
+    raise ValueError("API_KEY未设置，请在.env中配置")
+
+BASE_URL = os.getenv("BASE_URL")
+if not BASE_URL:
+    raise ValueError("BASE_URL未设置，请在.env中配置")
+
+MODEL = os.getenv("MODEL")
+if not MODEL:
+    raise ValueError("MODEL未设置，请在.env中配置")
 
 """
 作业二：
@@ -28,7 +40,7 @@ client = OpenAI(
 def relation_map(messages):
     # 1.发送请求
     response = client.chat.completions.create(
-        model=model,
+        model=MODEL,
         messages=messages,
         response_format={"type": "json_object"}
     )
