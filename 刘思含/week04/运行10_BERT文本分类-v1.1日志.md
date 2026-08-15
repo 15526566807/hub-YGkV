@@ -1,9 +1,10 @@
+```
 次数	数据量	warmup	epochs	最佳 acc	备注
 第一次	500	    500	      4	     0.79	LayerNorm 被重载 bug 损坏
 第二次	500	    500	      4	     0.81	模型完好
 第三次	5000	500	      4	     0.979	epoch 3 峰值,epoch 4 过拟合回落
 第四次	5000	100	      3	     0.976	恰停峰值,无过拟合,配置自洽
-
+```
 
 
 PS G:\ai技能库\课程\Week4-Transfomer和BERT、GPT模型\Week04> & E:\Conda\envs\course\python.exe g:/ai技能库/课程/Week4-Transfomer和BERT、GPT模型/Week04/10.1_BERT文本分类.py
