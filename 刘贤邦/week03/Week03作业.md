@@ -14,28 +14,26 @@
 作业：阅读 `indent-classify` 代码，梳理源代码作用，绘制从 fastapi 接受请求到返回结果的流程，绘制流程图
 
 - `main.py`：用于注册四种路由函数，每一种函数接收 `TextClassifyRequest` 类型的数据，返回 `TextClassifyResponse` 类型的响应
-    - `regex_classify`：
+    - `regex_classify`：当客户端发送 `/v1/text-cls/regex` 请求时
         1. 记录分类开始时间、初始化响应结果，记录要分类的内容
         2. 将文本传入正则表达式处理函数（`model_for_regex`）
         3. 若过程中无异常抛出，则 `error_msg` 为ok，否则为错误信息
         4. 将分类结果返回客户端。
-    - `tfidf_classify`：
+    - `tfidf_classify`：当客户端发送 `/v1/text-cls/tfidf` 请求时
         1. 记录分类开始时间、初始化响应结果，记录要分类的内容
         2. 将文本传入TFIDF分类函数（`model_for_tfidf`）
         3. 若过程中无异常抛出，则 `error_msg` 为ok，否则为错误信息
         4. 将分类结果返回客户端。
-    - `bert_classify`：
+    - `bert_classify`：当客户端发送 `/v1/text-cls/bert` 请求时
         1. 记录分类开始时间、初始化响应结果，记录要分类的内容
         2. 将文本传入bert分类函数（`model_for_bert`）
         3. 若过程中无异常抛出，则 `error_msg` 为ok，否则为错误信息
         4. 将分类结果返回客户端。
-    - `gpt_classify`：
+    - `gpt_classify`：当客户端发送 `/v1/text-cls/gpt` 请求时
         1. 记录分类开始时间、初始化响应结果，记录要分类的内容
         2. 将文本传入gpt分类函数（`model_for_gpt`）
         3. 若过程中无异常抛出，则 `error_msg` 为ok，否则为错误信息
         4. 将分类结果返回客户端。
-
-
 
 
 
